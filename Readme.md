@@ -1,90 +1,25 @@
-# Genome mutation analysis
-
-## This repo is doing:
-###### Mutation analysis after `variant calling`
-###### Extraction all mutation status from `vcf` file
-###### **Check `amino acid mutation`**
-###### **Check `non-coding region mutation`**
+## 這是 Python coding 教學
 ---
 
-
-![image](https://github.com/HuangDeneil/genome-mutation-analysis/blob/master/image/workflow.png)
-
-
-### Genome mutation analysis process after vcf file production step
-
-### before vcf file production steps:
+這裡會從打開文字檔以及印出文字檔開始
+<br><br><br>
+## 本次上課會用到的檔案:
 
 ---
 
-1) Qualuty control (`trimomatic`)
+open_file/<br>
+├── ATCC824.gff >>> genome 註解檔<br>
+├── HOL1.bwa.sorted.filted.vcf <br>
+├── codon_transfer.txt<br>
+├── open_file.py<br>
+├── read_codon.py<br>
+└── open_as_table.py<br>
 
-2) Reference genome alignmnet (`bwa`)
-
-3) Alignment file convertion (optional) (`samtools`)
-
-4) Output `vcf` file (`bcftools`)
-
-`ps : vcf (variant calling file)`
-
-<br>
-
-
-#### After vcf file generation:
-
----
-
-
-1. check_snp_position : This perl is checking mutation position with "gff file" from NCBI
-
-``` bash
-perl check_snp_position.pl sample.gff sample.vcf 
-```
-<br>
-
-2. merge_annotation (need to formating `uniport` annotation file before this step)
-
-``` bash
-perl merge_annotation.pl HOL1_variantion_all.txt uniprot_annotation_info.txt > cds_merged.txt 
-```
-<br>
-
-3. coding_or_not : This perl is `split` `coding` sequece mutation and `non-coding` sequece mutation
-
-``` bash
-perl coding_or_not.pl cds_merged.txt
-```
-<br>
-
-4. noncoding_analysis : This perl is checking the nearest cds of non-coding mutation
-
-``` bash
-perl noncoding_analysis.pl sample.gff mutation_in_non-coding_region.txt
-```
-<br>
-
-5. check_aa_sequence : This perl is primary check `amino acid mutation` with DNA sequence `translation` to amino acid sequence 
-
-``` bash
-perl check_aa_sequence.pl ATCC824_genome.fna codon_transfer.txt mutation_in_coding_region.txt 
-```
-<br>
-
-6. aa_forword_check : 
-
-``` bash
-perl aa_forword_check.pl amino_acid_primary_check.txt mutation_cds.faa mutation_cds_modified.faa mutation_in_coding_region.txt 
-```
-
-<br>
-##### More detail see Readme.sh
-
-#### Comparing 3 mutation strain mutation genes:
-
-```bash
-7. 
-perl cds_cross_check_v2.pl 0_S4_L001_final_report.txt 1_S5_L001_final_report.txt  2_S6_L001_final_report.txt
-```
-
-
-
+File name | Description
+-|-
+ATCC824.gff | genome 註解檔
+HOL1.bwa.sorted.filted.vcf| variant calling file (紀錄全部突變位點)
+codon_transfer.txt| DNA to Amino acid codon
+open_file.py| 用python 開檔讀檔
+read_codon.py| 進階讀檔操作
+open_as_table.py| 進階讀檔操作(用 pandas 以表格方式讀取)

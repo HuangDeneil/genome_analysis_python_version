@@ -2,7 +2,7 @@
 # 
 # checking variation postition whather at protein coding regein
 # 
-# usage : perl check_snp_position.pl $ARGV[0] $ARGV[1] 
+# usage : perl check_snp_position.py $ARGV[0] $ARGV[1] 
 # 
 # perl check_snp_position.py GCF_000008765.1_ASM876v1_genomic.gff HOL_S10_L001.bwa.sorted.calls.filted_005.vcf 
 # 
@@ -102,7 +102,11 @@ with open (open_path ,mode = "r", encoding = "utf8" ) as file:
 
 
 gene_locus=[]
+tmp_list=[]
 locus_tag_chrmosome_dict={}
+locus_tag_info_dict={}
+protein_id=""
+protein_id_dict={}
 
 ###########################
 ###                     ###
@@ -132,17 +136,31 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                     try:
                         locus_tag_chrmosome_dict[position] = (chrmosome+"-"+gene_locus[0])
                     except KeyError:
-                        pass
-                
-                
+                        locus_tag_chrmosome_dict[position] = (chrmosome+"-"+gene_locus[0])
                 
                 #
             elif re.findall( r"(CDS|RNA)", read_element[2]):
-                info_match = re.findall( r"\;Dbxref=(.+?)\;", read_element[8])
-                if info_match:
-
                 
-                pass
+                ## grep protein id
+                info_match = re.findall( r"\;protein_id=(.+)?", read_element[8])
+                if info_match:
+                    tmp_list = info_match[0].split(';')
+                    protein_id = tmp_list[0]
+                    try:
+                        protein_id_dict[position] = iprotein_id
+                    except KeyError:
+                        protein_id_dict[position] = iprotein_id
+                
+                
+                # 
+                if re.findall( r"RNA", read_element[2]):
+                    try:
+                        non_coding_gene[position] = True
+                    except KeyError:
+                        non_coding_gene[position] = True
+                
+                
+                # pass
 
 
 
