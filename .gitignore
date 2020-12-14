@@ -1,10 +1,10 @@
 Readme2.md
-*.vcf
+
 *.bcf
 *.bam
 *.sam
 *.fna
-*.gff
+
 reference_info/*
 Sequence_comparison/
 variantion_all.txt
