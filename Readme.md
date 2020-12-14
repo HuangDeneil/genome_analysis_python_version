@@ -8,7 +8,7 @@
 ---
 
 open_file/<br>
-├── ATCC824.gff >>> genome 註解檔<br>
+├── ATCC824.gff <br>
 ├── HOL1.bwa.sorted.filted.vcf <br>
 ├── codon_transfer.txt<br>
 ├── open_file.py<br>
