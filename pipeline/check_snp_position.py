@@ -30,10 +30,8 @@ key = ""
 info = ""
 
 chro_dict= {}
-snp_dict = {}
-insertion_dict = {}
-deletion_dict = {}
-
+type_dict= {}
+non_coding_gene= {}
 ###############################
 ###                         ###
 ###    read vcf position    ###
@@ -64,20 +62,28 @@ with open(vcf_path, mode = "r", encoding = "utf8") as file:
            
             if len(alt) == len(ref):
                 try:
-                    snp_dict[key]=info
+                    chro_dict[key]=info
+                    type_dict[key]=("snp")
                 except KeyError:
-                    pass
+                    chro_dict[key]=info
+                    type_dict[key]=("snp")
             elif len(alt) > len(ref):
                 try:
-                    insertion_dict[key]=info
+                    chro_dict[key]=info
+                    type_dict[key]=("insertion")
                 except KeyError:
-                    pass
+                    chro_dict[key]=info
+                    type_dict[key]=("insertion")
             elif len(alt) < len(ref):
                 try:
-                    deletion_dict[key]=info
+                    chro_dict[key]=info
+                    type_dict[key]=("deletion")
                 except KeyError:
-                    pass
-           
+                    chro_dict[key]=info
+                    type_dict[key]=("deletion")
+            
+            #try :
+
             # try :
             #     print (deletion_dict[key])
             # except KeyError:
@@ -108,6 +114,11 @@ locus_tag_info_dict={}
 protein_id=""
 protein_id_dict={}
 
+position_start = ""
+position_end = ""
+
+all_annotation={}
+
 ###########################
 ###                     ###
 ###    read gff file    ###
@@ -125,7 +136,12 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
             read_element = readline.split('\t')
             
             chrmosome = read_element[0]
-            position=(read_element[3]+"-"+read_element[4])
+            
+            
+            position_start = read_element[3]
+            position_end = read_element[4]
+            position = (position_start+"-"+position_end)
+            
             if re.findall( r"gene", read_element[2]):
                 
                 info_match = re.findall( r"\;old_locus_tag\=(.+)", read_element[8])
@@ -134,8 +150,10 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                     # if re.findall( r";", str(info_match[0])):
                     #     print (gene_locus[0])
                     try:
+                        all_annotation[position]="locus_tag_chrmosome_dict"
                         locus_tag_chrmosome_dict[position] = (chrmosome+"-"+gene_locus[0])
                     except KeyError:
+                        all_annotation[position]="locus_tag_chrmosome_dict"
                         locus_tag_chrmosome_dict[position] = (chrmosome+"-"+gene_locus[0])
                 
                 #
@@ -147,20 +165,34 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                     tmp_list = info_match[0].split(';')
                     protein_id = tmp_list[0]
                     try:
-                        protein_id_dict[position] = iprotein_id
+                        all_annotation[position] = "protein_id_dict"
+                        protein_id_dict[position] = protein_id
                     except KeyError:
-                        protein_id_dict[position] = iprotein_id
-                
+                        all_annotation[position] = "protein_id_dict"
+                        protein_id_dict[position] = protein_id
+                    #print (protein_id)
                 
                 # 
                 if re.findall( r"RNA", read_element[2]):
                     try:
+                        all_annotation[position] = "non_coding_gene"
                         non_coding_gene[position] = True
                     except KeyError:
+                        all_annotation[position] = "non_coding_gene"
                         non_coding_gene[position] = True
                 
-                
-                # pass
+        
+        #position = (position_start+"-"+position_end)
+        
+        
+        for k in chro_dict.keys():
+            if ()
+
+        
+        
+        
+        #
+                #
 
 
 

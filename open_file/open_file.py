@@ -9,11 +9,14 @@ file = open(input_file_name, mode = "r" )
 # output_file = open(output_file_name , mode = "w")  
 
 #### Reading each lines into list
-print( file.readlines() )
-
-# for i in file.readlines():
-#     readline = i.rstrip()
-#     print(readline)
+#print( file.readlines() )
+import re
+for i in file.readlines():
+    readline = i.rstrip()
+    #print(readline)
+    if re.findall(r'(AAA)\t(.+)',readline):
+        
+        print(re.findall(r'AAA',readline))
     ## output_file.write(readline+"\n")
 
 file.close()
