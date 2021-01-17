@@ -1,14 +1,13 @@
 ##############################################################
+# This program is checking :
+#   variation postition whather in protein coding regein or not.
 # 
-# checking variation postition whather at protein coding regein
+# usage : python3 check_mutation_position.py $ARGV[0] $ARGV[1] > output.txt
 # 
-# usage : perl check_snp_position.py $ARGV[0] $ARGV[1] 
+#  	$ARGV[0] >>> input vcf file
+# 	$ARGV[1] >>> reference cds position file (***_cds_from_genomic.fna)
 # 
-# perl check_snp_position.py GCF_000008765.1_ASM876v1_genomic.gff HOL_S10_L001.bwa.sorted.calls.filted_005.vcf 
-# 
-# 
-# 	$ARGV[0] >>> reference cds position file (***_cds_from_genomic.fna)
-# 	$ARGV[1] >>> input vcf file
+# python3 check_mutation_position.py HOL1.bwa.sorted.filted.vcf ATCC824.gff > test.txt
 # 
 # 
 # 
