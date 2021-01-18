@@ -2,10 +2,10 @@
 # This program is checking :
 #   variation postition whather in protein coding regein or not.
 # 
-# usage : python3 check_mutation_position.py $ARGV[0] $ARGV[1] > output.txt
+# usage : python3 check_mutation_position.py $ARGV[1] $ARGV[2] > output.txt
 # 
-#  	$ARGV[0] >>> input vcf file
-# 	$ARGV[1] >>> reference cds position file (***_cds_from_genomic.fna)
+#  	$ARGV[1] >>> input vcf file
+# 	$ARGV[2] >>> reference cds position file (ATCC824.gff)
 # 
 # python3 check_mutation_position.py HOL1.bwa.sorted.filted.vcf ATCC824.gff > test.txt
 # 
@@ -235,7 +235,6 @@ old_gene_locus = ""
 protein_id = ""
 description = ""
 read_element = []
-
 
 
 ###########################
