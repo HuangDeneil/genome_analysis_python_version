@@ -55,7 +55,7 @@ with open(vcf_path, mode = "r", encoding = "utf8") as file:
             alt = read_element[4]
            
             key = (chro+"\t"+pos)
-            info = (chro+"\t"+pos+"\t"+alt+"\t"+ref)
+            info = (chro+"\t"+pos+"\t"+ref+"\t"+alt)
            
             if len(alt) == len(ref):
                 try:
@@ -243,7 +243,7 @@ read_element = []
 #####  Output result  #####
 #####                 #####
 ###########################
-print ("Chromosome_id\tmutation_pos\talt\tref\tmutation_type\tcds_start\tcds_end\ttranscription_way\tlocus_taq\told_locus_taq\tprotein_id\tdescription")
+print ("Chromosome_id\tmutation_pos\tref\talt\tmutation_type\tcds_start\tcds_end\ttranscription_way\tlocus_taq\told_locus_taq\tprotein_id\tdescription")
 for k in chro_dict.keys():
     try:
         position = mutation_location[k]

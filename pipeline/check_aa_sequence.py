@@ -14,7 +14,7 @@
 
 import sys
 import re
-
+import os
 
 
 genome={}
@@ -97,7 +97,14 @@ def translate(seq):
         for i in range(0, len(seq), 3): 
             codon = seq[i:i + 3] 
             protein += table[codon] 
-            #print(protein,"")
+    else :
+        for i in range(0, len(seq), 3): 
+            codon = seq[i:i + 3] 
+            try :
+                protein += table[codon] 
+            except KeyError:
+                protein += (".") 
+    
     return protein 
 
 
@@ -216,13 +223,14 @@ fragment1 = ""
 fragment2 = ""
 fragment3 = ""
 
+data_dic = {}
 
 for i in list( cds_all_mutation.keys() ):
     
     
-    
+    locus_taq = i
 
-    info = str(cds_info[i])
+    info = str(cds_info[locus_taq])
     
     read_element = info.split('\t')
     Chromosome_id = read_element[0]
@@ -253,18 +261,22 @@ for i in list( cds_all_mutation.keys() ):
     # print(">"+locus_taq+"\t"+old_locus_taq+"\t"+str(cds_start)+"\t"+str(cds_end)+"\t"+description+"\t"+transcription_way+"\n"+cds_fna)
     # cds_all_mutation[i] = cds_all_mutation[i].replace(",", "", 1)
     mutation_list = []
-    mutation_list = cds_all_mutation[i].split("\t")
+    mutation_list = cds_all_mutation[locus_taq].split("\t")
     # print (mutation_list)
     indel_base = 0
+    
+    if locus_taq == "CA_RS06600":
+        test = 1
+    else:
+        test = 0
     
     for mut_key in mutation_list:
         # print (mut_key)
         
-        
         ref_alt = mutation_info[mut_key].split("\t")
         # print (ref_alt)
-        ref = ref_alt[1]
-        alt = ref_alt[0]
+        ref = ref_alt[0]
+        alt = ref_alt[1]
         
         pos_list = mut_key.split(",")
         pos_1 = ( (int(float(pos_list[1]) - cds_start -1) + indel_base))
@@ -272,14 +284,17 @@ for i in list( cds_all_mutation.keys() ):
         
         if len(ref) == len(alt):    ## SNP
             pos_2 = (pos_1+len(ref) )
+        
         elif len(ref) > len(alt):   ## deletion
             pass
+            pos_2 = (pos_1+len(ref))
+        
         elif len(ref) < len(alt):   ## insertion
-            pass
+            pos_2 = (pos_1+len(ref))
         
         
         
-        indel_base = (indel_base + (len(ref) - len(alt)))
+        indel_base = (indel_base + ( len(alt) -len(ref))  )
         
         fragment1 = mut_cds_fna[0:pos_1]
         fragment2 = mut_cds_fna[pos_1:pos_2]
@@ -291,19 +306,87 @@ for i in list( cds_all_mutation.keys() ):
         if fragment2 == ref:
             fragment2 = alt
         else:
+            fragment2 = alt
             pass
-            print(mut_key+"\tSomethong wrong!!!"+"\t"+str(fragment2)+"\t"+str(ref))
+            # print(mut_key+"\tSomethong wrong!!!"+"\t"+str(fragment2)+"\t"+str(ref)+"\t"+str(alt))
+        
+        
+        # if test == 1:
+        #     print(mut_key+"\t"+str(pos_1)+"\t"+str(pos_2)+"\t"+str(fragment2)+"\t"+str(ref))
+        #     print (cds_fna)
+        #     print (fragment1+" "+fragment2+" "+fragment3)
         
         
         mut_cds_fna = (fragment1+fragment2+fragment3)
+    
+    ##################################
+    ###                            ###
+    ###   CDS modifying completed  ###
+    ###                            ###
+    ##################################
+    #  cds_fna      >>> 原本的cds 序列
+    #  mut_cds_fna  >>> 突變後的 序列
     
     if transcription_way == "-":
         cds_fna = reverse_complement(cds_fna)
         mut_cds_fna = reverse_complement(mut_cds_fna)
     
-    # print(">"+locus_taq+"\t"+old_locus_taq+"\t"+str(cds_start)+"\t"+str(cds_end)+"\t"+description+"\t"+transcription_way)
-    # print(mut_key)
-    # print(cds_fna+"\n>alt\n"+mut_cds_fna)
+    
+    ###############################################
+    ###                                         ###
+    ###   Translation into amino acid sequence  ###
+    ###                                         ###
+    ###############################################
+    cds_aa = translate(cds_fna)
+    mut_cds_aa = translate(mut_cds_fna)
+    
+    
+    
+    
+    basic=(locus_taq+"\t"+old_locus_taq+"\t"+protein_id)
+    output=(description+"\t"+cds_fna+"\t"+mut_cds_fna+"\t"+cds_aa+"\t"+mut_cds_aa)
+    
+    
+    info_match_cds_stop = cds_aa.split("*")
+    info_match_mut_cds_stop = mut_cds_aa.split("*")
+    # info_match = re.findall( r"\*", mut_cds_aa)
+    # print (len(info_match_cds_stop))
+    # print (len(info_match_mut_cds_stop))
+    data = ("")
+    if cds_aa == mut_cds_aa:                              ## normal
+        data = (basic+"\t"+"normal"+"\t"+output)
+    
+    elif( len(info_match_mut_cds_stop) == 1 ):            ## no-stop
+        data = (basic+"\t"+"no_stop_codon"+"\t"+output)
+    
+    elif(len(info_match_mut_cds_stop) > 2 ):              ## muti-stop
+        data = (basic+"\t"+"multi-stop_codon"+"\t"+output)
+    
+    else:                                                 
+        
+        if ( len(info_match_cds_stop) > 2 or len(info_match_cds_stop) == 1 ):
+            data = (basic+"\t"+"die_to_live"+"\t"+output)   ## die_to_live
+        
+        else:                                               ## animo_acid_change
+            data = (basic+"\t"+"animo_acid_change"+"\t"+output)
+    try :
+        data_dic[locus_taq] = data
+    except KeyError:
+        data_dic[locus_taq] = data
 
-    #
+
+# os.system
+# https://ithelp.ithome.com.tw/articles/10226650
+
+os.system("if [ ! -d 'DNA' ] ; then mkdir DNA ; fi")
+os.system("if [ ! -d 'Protein' ] ; then mkdir Protein ; fi")
+
+print ("locus_taq\told_locus_taq\tprotein_id\tstatus\tdescription\tcds_fna\tmut_cds_fna\tcds_aa\tmut_cds_aa")
+
+for locus_taq in list(data_dic.keys()):
+    print (data_dic[locus_taq])
+
+
+
+
 

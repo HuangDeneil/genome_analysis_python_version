@@ -56,8 +56,8 @@ with open(vcf_path, mode = "r", encoding = "utf8") as file:
         
         Chromosome_id = read_element[0]
         mutation_pos = read_element[1]
-        alt = read_element[2]
-        ref = read_element[3]
+        ref = read_element[2]
+        alt = read_element[3]
         mutation_type = read_element[4]
         
         try:
