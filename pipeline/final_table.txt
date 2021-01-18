@@ -1,0 +1,114 @@
+locus_taq	old_locus_taq	protein_id	status	description
+CA_RS00990	CA_C0173	WP_013913506.1	die_to_live	sensor histidine kinase
+CA_RS01510	CA_C0272	WP_010963595.1	animo_acid_change	APC family permease
+CA_RS01670	CA_Cr027		no_stop_codon	5S ribosomal RNA
+CA_RS01900	CA_C0331	WP_010963654.1	normal	ECF transporter S component
+CA_RS01905	CA_C0332	WP_013913668.1	animo_acid_change	glycoside hydrolase family 26 protein
+CA_RS02070	CA_C0364	WP_013913511.1	die_to_live	MBL fold metallo-hydrolase
+CA_RS02135	CA_C0377	WP_013913513.1	animo_acid_change	amino acid ABC transporter permease
+CA_RS02195	CA_C0390	WP_010963712.1	animo_acid_change	PLP-dependent transferase
+CA_RS02510	CA_C0452	WP_017750919.1	die_to_live	MFS transporter
+CA_RS02920	CA_C0531	WP_010963852.1	animo_acid_change	MurR/RpiR family transcriptional regulator
+CA_RS02960	CA_C0539	WP_010963860.1	normal	mannanase
+CA_RS03695	CA_C0683	WP_007063070.1	die_to_live	CBS domain-containing protein
+CA_RS03865	CA_C0717	WP_013913526.1	die_to_live	hypothetical protein
+CA_RS03930	CA_C0727	WP_010964045.1	animo_acid_change	amino acid permease
+CA_RS04435	CA_C0828	WP_013913530.1	animo_acid_change	hypothetical protein
+CA_RS04565	CA_C0853	WP_013913532.1	animo_acid_change	HD-GYP domain-containing protein
+CA_RS05030	CA_C0946	WP_013913690.1	animo_acid_change	MBL fold metallo-hydrolase
+CA_RS05125	CA_Cr028		multi-stop_codon	16S ribosomal RNA
+CA_RS05145	CA_C0965	WP_010964283.1	animo_acid_change	1-acyl-sn-glycerol-3-phosphate acyltransferase
+CA_RS05155	CA_C0967	WP_013913534.1	die_to_live	hypothetical protein
+CA_RS05520	CA_C1039	WP_010964357.1	animo_acid_change	TerC family protein
+CA_RS06425	CA_C1217	WP_010964530.1	normal	guanylate kinase
+CA_RS06600	CA_C1250	WP_013913543.1	no_stop_codon	cell division topological specificity factor MinE
+CA_RS06635	CA_C1257	WP_012101257.1	animo_acid_change	50S ribosomal protein L21
+CA_RS06705	CA_C1271	WP_013913544.1	die_to_live	ComEC/Rec2 family competence protein
+CA_RS07850		WP_013913551.1	die_to_live	NgoFVII family restriction endonuclease
+CA_RS07910	CA_C1515	WP_010964823.1	animo_acid_change	sulfite reductase subunit C
+CA_RS08000	CA_C1533	WP_013913552.1	animo_acid_change	hypothetical protein
+CA_RS08395	CA_C1611	WP_013913553.1	die_to_live	MATE family efflux transporter
+CA_RS08540		WP_014518934.1	die_to_live	hypothetical protein
+CA_RS20115		WP_010963661.1	normal	hypothetical protein
+CA_RS08735	CA_C1680	WP_003495300.1	animo_acid_change	Holliday junction resolvase RuvX
+CA_RS08860	CA_C1705	WP_013913657.1	animo_acid_change	phosphate ABC transporter substrate-binding protein
+CA_RS08915	CA_C1716	WP_013913556.1	animo_acid_change	YicC family protein
+CA_RS08970	CA_C1727	WP_007061466.1	normal	Stp1/IreP family PP2C-type Ser/Thr phosphatase
+CA_RS08980	CA_C1729	WP_010965036.1	animo_acid_change	ribosome small subunit-dependent GTPase A
+CA_RS09055	CA_C1744	WP_013913557.1	die_to_live	DUF177 domain-containing protein
+CA_RS09075	CA_C1748	WP_013913645.1	animo_acid_change	ribonuclease III
+CA_RS09095	CA_C1752	WP_003393780.1	animo_acid_change	signal recognition particle-docking protein FtsY
+CA_RS09140	CA_C1761	WP_010965068.1	animo_acid_change	ribosome biogenesis GTPase YlqF
+CA_RS09230	CA_C1777	WP_010965083.1	animo_acid_change	NUDIX hydrolase
+CA_RS09260	CA_C1783	WP_013913672.1	animo_acid_change	cation:dicarboxylase symporter family transporter
+CA_RS09305	CA_C1792	WP_013913673.1	die_to_live	phosphatidate cytidylyltransferase
+CA_RS09440	CA_C1819	WP_013913643.1	animo_acid_change	pyridoxal phosphate-dependent aminotransferase
+CA_RS09490	CA_C1830	WP_013913558.1	die_to_live	tyrosine recombinase XerC
+CA_RS09510	CA_C1834	WP_010965139.1	animo_acid_change	RNA chaperone Hfq
+CA_RS09525	CA_C1837	WP_010965142.1	animo_acid_change	DNA mismatch repair protein MutS
+CA_RS09540	CA_C1840	WP_010965145.1	animo_acid_change	GNAT family N-acetyltransferase
+CA_RS09545	CA_C1841	WP_013913560.1	animo_acid_change	CotS family spore coat protein
+CA_RS09550	CA_C1842	WP_010965147.1	normal	holin family protein
+CA_RS09575	CA_C1847	WP_010965152.1	animo_acid_change	bifunctional 4-hydroxy-3-methylbut-2-enyl diphosphate reductase/30S ribosomal protein S1
+CA_RS09755	CA_C1883	WP_010965188.1	animo_acid_change	phage tail tape measure protein
+CA_RS09765	CA_C1886	WP_010965191.1	animo_acid_change	Ig-like domain-containing protein
+CA_RS09970	CA_C1925	WP_013913565.1	die_to_live	hypothetical protein
+CA_RS10070	CA_C1945	WP_010965248.1	normal	phage antirepressor Ant
+CA_RS10260	CA_C1982	WP_010965283.1	animo_acid_change	hypothetical protein
+CA_RS10355	CA_C2003	WP_013913683.1	animo_acid_change	FtsX-like permease family protein
+CA_RS10455	CA_C2023	WP_013913570.1	die_to_live	CDP-alcohol phosphatidyltransferase family protein
+CA_RS10670	CA_C2068	WP_010965368.1	normal	stage II sporulation protein M
+CA_RS10735	CA_C2082	WP_013913670.1	animo_acid_change	exodeoxyribonuclease VII large subunit
+CA_RS10815	CA_C2098	WP_013913572.1	animo_acid_change	hypothetical protein
+CA_RS10860	CA_C2107	WP_013913573.1	animo_acid_change	Ig domain-containing protein
+CA_RS10865		WP_013913574.1	die_to_live	CatB-related O-acetyltransferase
+CA_RS10925	CA_C2121	WP_010965420.1	animo_acid_change	YggS family pyridoxal phosphate-dependent enzyme
+CA_RS11005	CA_C2137	WP_004441853.1	animo_acid_change	calcium-translocating P-type ATPase%2C PMCA-type
+CA_RS11020	CA_C2140	WP_013913664.1	animo_acid_change	flagellar basal body rod protein FlgG
+CA_RS11250	CA_C2188	WP_010965487.1	normal	glycosyltransferase family 4 protein
+CA_RS11570	CA_C2252	WP_013913679.1	animo_acid_change	starch-binding protein
+CA_RS11575	CA_C2253	WP_013913577.1	animo_acid_change	sensor histidine kinase
+CA_RS11805	CA_C2301	WP_010965598.1	animo_acid_change	penicillin-binding protein 1A
+CA_RS11895	CA_C2320	WP_013913579.1	die_to_live	glycosyltransferase family 2 protein
+CA_RS11910	CA_C2323	WP_013913580.1	animo_acid_change	hypothetical protein
+CA_RS12115	CA_C2364	WP_010965661.1	normal	hypothetical protein
+CA_RS12285	CA_C2393	WP_010965689.1	normal	ABC transporter ATP-binding protein
+CA_RS12335	CA_C2403	WP_013913583.1	animo_acid_change	MFS transporter
+CA_RS12515	CA_C2440	WP_010965735.1	animo_acid_change	membrane protein
+CA_RS12670	CA_C2471	WP_013913585.1	die_to_live	TetR/AcrR family transcriptional regulator
+CA_RS12720	CA_C2481	WP_013913586.1	animo_acid_change	DNA topology modulation protein
+CA_RS12925	CA_C2523	WP_013913662.1	animo_acid_change	putative glycosyltransferase%2C exosortase G system-associated
+CA_RS12930	CA_C2524	WP_010965818.1	animo_acid_change	exosortase family protein XrtG
+CA_RS12970	CA_C2532	WP_010965825.1	animo_acid_change	hypothetical protein
+CA_RS13140	CA_C2567	WP_010965857.1	normal	superoxide dismutase
+CA_RS13190	CA_C2577	WP_010965867.1	animo_acid_change	GGDEF domain-containing protein
+CA_RS13265	CA_C2592	WP_013913593.1	animo_acid_change	6-carboxytetrahydropterin synthase
+CA_RS13525	CA_C2644	WP_010965932.1	animo_acid_change	carbamoyl-phosphate synthase (glutamine-hydrolyzing) large subunit
+CA_RS13530	CA_C2645	WP_013726315.1	no_stop_codon	glutamine-hydrolyzing carbamoyl-phosphate synthase small subunit
+CA_RS13630	CA_Ct025		multi-stop_codon	tRNA-Glu
+CA_RS13785	CA_C2673	WP_013913654.1	animo_acid_change	NAD-dependent DNA ligase LigA
+CA_RS14070	CA_C2731	WP_013913594.1	animo_acid_change	FtsX-like permease family protein
+CA_RS14075	CA_C2732	WP_013913595.1	die_to_live	ABC transporter ATP-binding protein
+CA_RS14260	CA_C2770%2CCA_C2771	WP_013913597.1	die_to_live	amino acid permease
+CA_RS14575	CA_C2833	WP_010966118.1	animo_acid_change	helix-turn-helix domain-containing protein
+CA_RS14585	CA_C2835	WP_013913659.1	die_to_live	GntP family permease
+CA_RS14665	CA_C2852	WP_013913663.1	animo_acid_change	ComF family protein
+CA_RS14985	CA_C2912	WP_013913651.1	animo_acid_change	carbohydrate ABC transporter substrate-binding protein
+CA_RS15550	CA_C3025	WP_010966307.1	normal	ABC transporter permease
+CA_RS15820	CA_C3079	WP_010966360.1	animo_acid_change	TIGR00159 family protein
+CA_RS16170	CA_C3151	WP_011988789.1	animo_acid_change	50S ribosomal protein L33
+CA_RS16190	CA_C3152	WP_013913606.1	animo_acid_change	RNA polymerase sporulation sigma factor SigH
+CA_RS16430	CA_C3194	WP_013913650.1	animo_acid_change	UDP-N-acetylmuramoyl-L-alanine--D-glutamate ligase
+CA_RS16515	CA_C3208	WP_013913608.1	animo_acid_change	spore cortex biosynthesis protein YabQ
+CA_RS17335	CA_C3370	WP_003233588.1	no_stop_codon	PadR family transcriptional regulator
+CA_RS17630	CA_C3428	WP_010966698.1	normal	hydroxylamine reductase
+CA_RS17980	CA_C3501	WP_013913623.1	animo_acid_change	SIS domain-containing protein
+CA_RS18505	CA_C3596	WP_010966859.1	animo_acid_change	CDP-diacylglycerol--glycerol-3-phosphate 3-phosphatidyltransferase
+CA_RS18995	CA_C3694	WP_013913633.1	die_to_live	transcriptional regulator
+CA_RS19000	CA_C3696	WP_013913653.1	animo_acid_change	type VII secretion protein EsaA
+CA_RS19160	CA_C3726	WP_013913646.1	animo_acid_change	mechanosensitive ion channel family protein
+CA_RS19305	CA_P0017	WP_010890702.1	animo_acid_change	endospore germination permease
+CA_RS19485	CA_P0053	WP_010890738.1	animo_acid_change	endo-1%2C4-beta-xylanase
+CA_RS19495	CA_P0055	WP_013913499.1	animo_acid_change	CPBP family intramembrane metalloprotease
+CA_RS19515	CA_P0059	WP_010890744.1	animo_acid_change	iron-containing alcohol dehydrogenase
+CA_RS19595	CA_P0075	WP_010890760.1	animo_acid_change	DUF421 domain-containing protein

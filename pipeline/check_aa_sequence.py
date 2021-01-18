@@ -384,7 +384,7 @@ os.system("if [ ! -d 'Protein' ] ; then mkdir Protein ; fi")
 print ("locus_taq\told_locus_taq\tprotein_id\tstatus\tdescription")
 
 for locus_taq in list(data_dic.keys()):
-    print (data_dic[locus_taq])
+    #print (data_dic[locus_taq])
     
     read_element = data_dic[locus_taq].split('\t')
     
