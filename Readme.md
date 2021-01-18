@@ -1,8 +1,8 @@
 
 ---
 
-## class I. reading file with python
-## class II. regular expression
+### class I. reading file with python
+### class II. regular expression
 
 ## function need:
     1. DNA tanslation
