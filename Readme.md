@@ -17,7 +17,7 @@ open_file2.py| 進階讀檔操作
 open_as_table.py| 進階讀檔操作(用 pandas 以表格方式讀取)
 
 
-
+![image](https://github.com/HuangDeneil/genome_analysis_python_version/blob/master/pipeline/workflow.png)
 
 
 
