@@ -1,14 +1,13 @@
 ##############################################################
+# This program is checking :
+#   variation postition whather in protein coding regein or not.
 # 
-# checking variation postition whather at protein coding regein
+# usage : python3 check_mutation_position.py $ARGV[0] $ARGV[1] > output.txt
 # 
-# usage : perl check_snp_position.py $ARGV[0] $ARGV[1] 
+#  	$ARGV[0] >>> input vcf file
+# 	$ARGV[1] >>> reference cds position file (***_cds_from_genomic.fna)
 # 
-# perl check_snp_position.py GCF_000008765.1_ASM876v1_genomic.gff HOL_S10_L001.bwa.sorted.calls.filted_005.vcf 
-# 
-# 
-# 	$ARGV[0] >>> reference cds position file (***_cds_from_genomic.fna)
-# 	$ARGV[1] >>> input vcf file
+# python3 check_mutation_position.py HOL1.bwa.sorted.filted.vcf ATCC824.gff > test.txt
 # 
 # 
 # 
@@ -56,7 +55,7 @@ with open(vcf_path, mode = "r", encoding = "utf8") as file:
             alt = read_element[4]
            
             key = (chro+"\t"+pos)
-            info = (chro+"\t"+pos+"\t"+alt+"\t"+ref)
+            info = (chro+"\t"+pos+"\t"+ref+"\t"+alt)
            
             if len(alt) == len(ref):
                 try:
@@ -166,7 +165,7 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                 
             elif re.findall( r"(CDS|RNA)", read_element[2]):
                 
-                ## grep protein id
+                ##  protein id
                 info_match = re.findall( r"RefSeq\:(.+)?", read_element[8])
                 if info_match:
                     tmp_list = info_match[0].split(';')
@@ -175,8 +174,8 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                         protein_id_dict[position] = protein_id
                     except KeyError:
                         protein_id_dict[position] = protein_id
-                    #print (protein_id)
-                # 
+                
+                ##  protein description
                 info_match = re.findall(r"\;product=(.+)?", read_element[8])
                 if info_match:
                     tmp_list = info_match[0].split(';')
@@ -215,11 +214,18 @@ with open(gff_path, mode = "r", encoding = "utf8") as file:
                                 mutation_location[k] = position
                             #print (position+"\t"+k)
 
+
+
+
+
 ########################
 #####              #####
 ##### 清空暫存變數  #####
 #####              #####
 ########################
+key = ""
+info = ""
+mutation_type = ""
 position = ""
 position_start = ""
 position_end = ""
@@ -230,13 +236,37 @@ protein_id = ""
 description = ""
 read_element = []
 
-print ("Chromosome_id\tmutation_pos\tcds_start\tcds_end\ttranscription_way\tlocus_taq\told_locus_taq\tprotein_id\tdescription")
+
+
+###########################
+#####                 #####
+#####  Output result  #####
+#####                 #####
+###########################
+print ("Chromosome_id\tmutation_pos\tref\talt\tmutation_type\tcds_start\tcds_end\ttranscription_way\tlocus_taq\told_locus_taq\tprotein_id\tdescription")
 for k in chro_dict.keys():
     try:
         position = mutation_location[k]
     except KeyError:
         position = ""
     
+    key = k
+    try:
+        info = chro_dict[key]
+    except KeyError:
+        info = ""
+        
+    try:
+        mutation_type = type_dict[key]
+    except KeyError:
+        mutation_type = ""
+
+    
+    ###################################
+    ####                           ####
+    ####   加入cds information     ####
+    ####                           ####
+    ###################################
     if position == "": ### 空值代表 突變不發生在 transcription 區域
         #pass
         position_start = ""
@@ -255,6 +285,8 @@ for k in chro_dict.keys():
         read_element = position.split('\t')
         position_start = read_element[1]
         position_end = read_element[2]
+        
+        
         
         try:
             direction = transcription_way[position]
@@ -281,7 +313,7 @@ for k in chro_dict.keys():
         except KeyError:
             description = ""
         
-    print(k+"\t"+position_start+"\t"+position_end+"\t"+direction+"\t"+gene_locus+"\t"+old_gene_locus+"\t"+protein_id+"\t"+description)
+    print(info+"\t"+mutation_type+"\t"+position_start+"\t"+position_end+"\t"+direction+"\t"+gene_locus+"\t"+old_gene_locus+"\t"+protein_id+"\t"+description)
         
         #
 
