@@ -214,7 +214,7 @@ def reverse_complement(dna):
 
 ########################################
 ####                                ####
-#### 最後整理確認cds 中所有mutation  ####
+#### 最後整理確認cds 中所有 mutation  ####
 ####                                ####
 ########################################
 
@@ -381,11 +381,37 @@ for i in list( cds_all_mutation.keys() ):
 os.system("if [ ! -d 'DNA' ] ; then mkdir DNA ; fi")
 os.system("if [ ! -d 'Protein' ] ; then mkdir Protein ; fi")
 
-print ("locus_taq\told_locus_taq\tprotein_id\tstatus\tdescription\tcds_fna\tmut_cds_fna\tcds_aa\tmut_cds_aa")
+print ("locus_taq\told_locus_taq\tprotein_id\tstatus\tdescription")
 
 for locus_taq in list(data_dic.keys()):
     print (data_dic[locus_taq])
+    
+    read_element = data_dic[locus_taq].split('\t')
+    
+    locus_taq = read_element[0]
+    old_locus_taq = read_element[1]
+    protein_id = read_element[2]
+    status = read_element[3]
+    description = read_element[4]
+    cds_fna = read_element[5]
+    mut_cds_fna = read_element[6]
+    cds_aa = read_element[7]
+    mut_cds_aa = read_element[8]
+    
+    print (locus_taq+"\t"+old_locus_taq+"\t"+protein_id+"\t"+status+"\t"+description)
+    
+    file1 = ("./DNA/"+locus_taq+".fa")
+    file2 = ("./Protein/"+locus_taq+".aa")
+    
+    locus_taq_DNA = open(file1, mode = "w" )
+    locus_taq_AA  = open(file2, mode = "w" )
+    
+    locus_taq_DNA.write(">"+locus_taq+"\tref\n"+cds_fna+"\n>"+locus_taq+"\talt\n"+mut_cds_fna+"\n")
+    locus_taq_AA.write(">"+locus_taq+"\tref\n"+cds_aa+"\n>"+locus_taq+"\talt\n"+mut_cds_aa+"\n")
 
+    locus_taq_DNA.close
+    locus_taq_AA.close
+    #
 
 
 
